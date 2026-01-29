@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>عالم أحمد & منه الخاص ❤️</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #ff4d6d;
+            --secondary: #ff758f;
+            --gold: #d4af37;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --bg: #030303;
+            --glow-shadow: 0 0 20px rgba(255, 77, 109, 0.3);
+        }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { margin: 0; background: var(--bg); color: #fff; font-family: 'Segoe UI', sans-serif; overflow: hidden; }
+
+        .hearts-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
+        .heart-particle { position: absolute; color: var(--primary); opacity: 0.4; animation: fall linear infinite; filter: drop-shadow(0 0 5px var(--primary)); }
+        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+
+        #page-1 {
+            height: 100vh; display: flex; align-items: center; justify-content: center;
+            background: radial-gradient(circle at center, #2b0b14 0%, #030303 100%);
+            position: fixed; width: 100%; z-index: 9999; transition: 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .login-card {
+            background: var(--glass); backdrop-filter: blur(25px); padding: 50px 30px;
+            border-radius: 40px; border: 1px solid var(--glass-border); text-align: center;
+            width: 90%; max-width: 400px; 
+            box-shadow: 0 0 40px rgba(255, 77, 109, 0.15); 
+            position: relative;
+        }
+        
+        .single-line-title { white-space: nowrap; font-size: clamp(24px, 8vw, 35px); margin-bottom: 10px; display: block; }
+
+        #page-2 { display: none; opacity: 0; height: 100vh; overflow-y: auto; position: relative; z-index: 5; transition: 1s; }
+        .container { padding: 30px 20px; max-width: 500px; margin: 0 auto; }
+
+        .main-title { font-weight: 900; background: linear-gradient(45deg, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0; }
+
+        .glass-card {
+            background: var(--glass); border: 1px solid var(--glass-border); border-radius: 35px; 
+            margin-bottom: 35px; overflow: hidden; opacity: 0; transform: translateY(40px); 
+            transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .glass-card.show { opacity: 1; transform: translateY(0); }
+        .glass-card img, .glass-card video { width: 100%; display: block; }
+
+        .count-box { 
+            background: var(--glass); border: 1px solid var(--glass-border); padding: 20px 5px; border-radius: 25px; 
+            text-align: center; backdrop-filter: blur(15px);
+        }
+        .count-num { font-size: 24px; font-weight: 800; display: block; color: var(--primary); }
+        .counter-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 30px 0; }
+
+        .btn-style { background: linear-gradient(45deg, var(--primary), var(--secondary)); color: white; border: none; padding: 18px 30px; border-radius: 20px; font-weight: 800; cursor: pointer; width: 100%; margin-top: 10px; }
+        .btn-outline { background: none; border: 1px solid var(--gold); color: var(--gold); padding: 15px 35px; border-radius: 50px; cursor: pointer; margin: 20px 0; font-weight: 600; }
+
+        .music-bar { background: var(--glass); padding: 18px; border-radius: 30px; border: 1px solid var(--glass-border); display: flex; align-items: center; gap: 15px; margin: 25px 0; }
+        .play-icon { width: 50px; height: 50px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+
+        #page-3 { display: none; opacity: 0; position: fixed; inset: 0; z-index: 10000; background: #000; transition: 0.8s; overflow-y: auto; }
+        .secret-content { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px; text-align: center; }
+        .message-box { background: var(--glass); border: 1px solid var(--gold); padding: 30px; border-radius: 30px; backdrop-filter: blur(20px); max-width: 90%; }
+    </style>
+</head>
+<body>
+
+    <div class="hearts-bg" id="hearts-container"></div>
+
+    <section id="page-1">
+        <div class="login-card animate__animated animate__zoomIn">
+            <h1 class="main-title single-line-title" style="-webkit-text-fill-color: initial; color: #fff;">أحمد & منه</h1>
+            <p style="opacity:0.6; font-size:12px; margin-bottom:35px;">OUR ETERNAL LOVE STORY ✨</p>
+            <input type="password" id="passInput" placeholder="اكتب الباسورد يا بطل" style="width:100%; background:rgba(255,255,255,0.07); border:1px solid var(--glass-border); padding:18px; border-radius:20px; color:#fff; text-align:center; margin-bottom:25px; outline:none;">
+            <button class="btn-style" onclick="goToPage2()">دوسي هنا😂</button>
+        </div>
+    </section>
+
+    <section id="page-2">
+        <div class="container">
+            <header style="text-align:center; padding:40px 0;">
+                <h2 class="main-title">حكايتنا ❤️</h2>
+            </header>
+
+            <div class="counter-grid">
+                <div class="count-box"><span id="years" class="count-num">0</span><span>سنة</span></div>
+                <div class="count-box"><span id="months" class="count-num">0</span><span>شهر</span></div>
+                <div class="count-box"><span id="days" class="count-num">0</span><span>يوم</span></div>
+                <div class="count-box"><span id="hours" class="count-num">0</span><span>ساعة</span></div>
+                <div class="count-box"><span id="mins" class="count-num">0</span><span>دقيقة</span></div>
+                <div class="count-box"><span id="secs" class="count-num">0</span><span>ثانية</span></div>
+            </div>
+
+            <div class="music-bar">
+                <div class="play-icon" onclick="toggleMusic()"><i id="pIcon" class="fa-solid fa-play"></i></div>
+                <div style="flex:1">
+                    <div style="font-size:15px; font-weight:700;">أغنيتنا 🎵</div>
+                </div>
+                <audio id="loveSong" loop src="https://files.catbox.moe/tyl7dt.mp3"></audio>
+            </div>
+
+            <div class="glass-card">
+                <video id="vid1" controls onplay="pauseMusic()" onpause="resumeMusic()" onended="resumeMusic()" style="width:100%;">
+                    <source src="https://files.catbox.moe/k8as4o.mp4" type="video/mp4">
+                </video>
+                <div style="padding:20px; text-align:center;">لما حكينا اول كلااام❤️🌏✨</div>
+            </div>
+
+            <div class="glass-card">
+                <img src="https://g.top4top.io/p_3681wa87j1.jpg">
+                <div style="padding:20px; text-align:center;">*عظيم الأمان اللي يستوطن قلبي بقربك* ♥️.</div>
+            </div>
+
+            <div class="glass-card">
+                <video controls onplay="pauseMusic()" onpause="resumeMusic()" onended="resumeMusic()" style="width:100%;">
+                    <source src="https://h.top4top.io/m_3681j37dj1.mp4" type="video/mp4"> </video>
+                <div style="padding:20px; text-align:center;">ميفرقليش اي حد غيره❤️✨</div>
+            </div>
+
+            <div class="glass-card">
+                <img src="https://files.catbox.moe/qogejn.jpg">
+                <div style="padding:20px; text-align:center;">الطفله دى كبرت.... وبقت اجمل حكايه فى حياتى❤✨</div>
+            </div>
+
+            <button class="btn-style" onclick="showSecret(1)">دوسي هنا 💌</button>
+
+            <div class="glass-card" style="margin-top:35px;">
+                <video controls onplay="pauseMusic()" onpause="resumeMusic()" onended="resumeMusic()" style="width:100%;">
+                    <source src="https://l.top4top.io/m_368198ccf1.mp4" type="video/mp4">
+                </video>
+                <div style="padding:20px; text-align:center;">مشتقالك عينى ❤️✨</div>
+            </div>
+
+            <div class="glass-card">
+                <video controls onplay="pauseMusic()" onpause="resumeMusic()" onended="resumeMusic()" style="width:100%;">
+                    <source src="https://a.top4top.io/m_3681t5yeq1.mp4" type="video/mp4">
+                </video>
+                <div style="padding:20px; text-align:center;">محدش هيعرف ياخدك منى❤️✨</div>
+            </div>
+
+            <div style="text-align:center; padding-bottom:50px;">
+                <button class="btn-outline" onclick="showSecret(2)">آخر رسالة ليكي.. 🎁</button>
+                
+                <button class="btn-style" style="margin-top:20px;" onclick="showSecret(3)">رسالة حب لقمورتي ❤️</button>
+                <button class="btn-style" style="margin-top:15px; background: linear-gradient(45deg, #ff758f, #ff4d6d);" onclick="showSecret(4)">عيد ميلادك يا أجمل نعمة 🎂</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="page-3">
+        <div class="secret-content">
+            <div class="message-box animate__animated animate__fadeIn">
+                <div id="secretText" style="line-height:1.8; font-size:15px; text-align: right; white-space: pre-line;"></div>
+                <button class="btn-style" onclick="closeSecret()" style="margin-top: 25px;">رجوع</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const loveSong = document.getElementById('loveSong');
+
+        function goToPage2() {
+            if(document.getElementById('passInput').value === "2/2/2008") {
+                document.getElementById('page-1').style.display = 'none';
+                document.getElementById('page-2').style.display = 'block';
+                document.body.style.overflow = 'auto';
+                
+                loveSong.play().then(() => {
+                    document.getElementById('pIcon').className = 'fa-solid fa-pause';
+                }).catch(e => console.log("Auto-play prevented by browser"));
+
+                setTimeout(() => { 
+                    document.getElementById('page-2').style.opacity = '1'; 
+                    checkScroll(); 
+                }, 50);
+                startCounter();
+                createHearts();
+            } else { 
+                alert("الباسورد غلط يا قمر!");
+            }
+        }
+
+        function startCounter() {
+            const start = new Date("2025-09-20T12:25:00");
+            setInterval(() => {
+                const diff = new Date() - start;
+                document.getElementById('years').innerText = Math.floor(diff / (1000*60*60*24*365.25));
+                document.getElementById('months').innerText = Math.floor((diff % (1000*60*60*24*365.25)) / (1000*60*60*24*30.44));
+                document.getElementById('days').innerText = Math.floor((diff % (1000*60*60*24*30.44)) / (1000*60*60*24));
+                document.getElementById('hours').innerText = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+                document.getElementById('mins').innerText = Math.floor((diff % (1000*60*60)) / (1000*60));
+                document.getElementById('secs').innerText = Math.floor((diff % (1000*60)) / 1000);
+            }, 1000);
+        }
+
+        function toggleMusic() {
+            const i = document.getElementById('pIcon');
+            if(loveSong.paused) { loveSong.play(); i.className = 'fa-solid fa-pause'; }
+            else { loveSong.pause(); i.className = 'fa-solid fa-play'; }
+        }
+
+        function pauseMusic() { 
+            loveSong.pause(); 
+            document.getElementById('pIcon').className = 'fa-solid fa-play'; 
+        }
+
+        function resumeMusic() { 
+            loveSong.play(); 
+            document.getElementById('pIcon').className = 'fa-solid fa-pause'; 
+        }
+
+        function showSecret(type) {
+            let text = "";
+            if (type === 1) {
+                text = `قمورتى.. أنا بقيت بحبك اكتر من نفسى وبحبك وهحبك وحبيتك♥️👫 مش عاوز غيرك من الدنيا ربنا يديمك نعمه ليه وسند طول العمر كله يارب..... إنتى نصيبي الحلو إلي ف الدنيا ورزق ليا من ربنا..... إنتى الحنيه وكل حاجه حلوه في حياتي كلها بحبك اوووي.❤️🫂🌏`;
+            } else if (type === 2) {
+                text = `انا معدش فى حاجه قدامى غير انى افرحك و انسيكى اي حاجه اذتك و مفيش قدامة غير انى اكون قد وعدى ليكى و قد كل عهد قلتو ليكى ونا هنفذ كلام ربنا ان شاءلله (و الموفون بعهدهم اذا عاهدو) صدق الله العظيم ونا ان شاءلله ربنا يقدرنى واكون قد كل وعد اما وعدتك بيه و ان شاءلله هثبتلك ان اختيارك ليا ك اخ و صاحب و ضهر و سند كان صح و نا معنديش غيرك ومليش غيرك و مش ينفع حد اعملو كد و اقدملو اى حاجه غيرك ونا عينى من بعد م انتى دخلتى حياتى بقت اعمى عن كل البنات و مش بشوف غيرك هو اه احنا مش جمب بعض بس صدقينى انا بحبك اوى و دى يعتبر متجيش واحد في الميه من الكلام اللى جويا ليكى ومش عايز منك حاجه غير انك تدعى ان ربنا يقدرنى و اخليكى فرحانه و مبسوطه على طول 😚❤️ بحبك ❤`;
+            } else if (type === 3) {
+                text = `قمورتى.. أنا بقيت بحبك اكتر من نفسى وبحبك وهحبك وحبيتك♥️👫
+مش عاوز غيرك من الدنيا ربنا يديمك نعمه ليه وسند طول العمر كله يارب..... إنتى نصيبي الحلو إلي ف الدنيا ورزق ليا من ربنا..... إنتى الحنيه وكل حاجه حلوه في حياتي كلها بحبك اوووي.❤️🫂🌏
+ما بقتش شايف غيرك ف الدنيا دي "بحبك "هفضل.... احبك لاخر نفس في حياتي وربي شاهد عليا احلي حاجه حصلتلي بجد اننا بقينا مع بعض لبعض سند
+وعزوه وقوه وضهر. .... شرف ليا انك تبقي اختي و بنتي وصاحبتي وحبيبتي لاخر العمر
+وبيكي رسمت حياتي وانتي لونتيها❤🫂.... مش هقول بحبك وبعشقك وبموت فيكي كمان لا.... لان دا مجرد كلام انا هقول دايما ربنا يباركلي فيكي
+ويخليكي ليا ويحميكي من كل شر.... عيني اتعمت عن كل بنات الارض واخترتك تبقي اميره فوقهم بعد امي انتي اجمل حاجه في حياتي😘😘❤️❤️🌏`;
+            } else if (type === 4) {
+                text = `عيد ميلادك مش يوم عادي… ده اليوم اللي الدنيا خدت فيه أحلى قرار وخلقت إنسانة قلبي اختارها من غير تردد 💖
+كل سنة وانتي الضحكة اللي بتهون عليّ أي تعب والروح اللي لما تكون جنبي بحس إن الدنيا كلها تمام❤🌍
+انتي مش بس حبيبتي انتي ضهرى وسندي وروح قلبي وأجمل حكاية عشتها ولسه بعيشها 🫶
+كل لحظة معاكي بتأكدلي إن في حاجات حلوة قوي تستاهل الصبر والحلم وانتي أولهم وآخرهم.
+في عيد ميلادك بحب أقولك:
+أنا فخور بيكي بكل تفصيلة فيكي بقلبك الطيب بعقلك بقوتك وبقلبك اللي بيحب بجد💫
+بحبك وانتي بتضحكي وانتي زعلانة وانتي قوية وحتى في لحظات ضعفك… بحبك زي ما انتي من غير شروط❤️✨
+ربنا يخليكي ليا العمر كله ويكتبلك أيام جاية كلها فرح ونجاح وراحة بال، وأنا قبل أي حاجة بعدها أكون جنبك، أفرح لفرحك وأشيل عنك أي هم 🤍
+وعد مني إن أفضل أحبك كل يوم أكتر من اللي قبله، وأختارك كل مرة من أول وجديد.
+كل سنة وانتي حببتى، ودنيتى، وقمورتى وكل م ليا❤🌍
+كل سنة وانتي سبب سعادتي وأجمل نعمة في حياتي 🎂💞`;
+            }
+            
+            document.getElementById('secretText').innerText = text;
+            document.getElementById('page-3').style.display = 'block';
+            setTimeout(() => document.getElementById('page-3').style.opacity = '1', 50);
+        }
+
+        function closeSecret() {
+            document.getElementById('page-3').style.opacity = '0';
+            setTimeout(() => document.getElementById('page-3').style.display = 'none', 800);
+        }
+
+        function createHearts() {
+            const container = document.getElementById('hearts-container');
+            setInterval(() => {
+                const heart = document.createElement('i');
+                heart.className = 'fa-solid fa-heart heart-particle';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                container.appendChild(heart);
+                setTimeout(() => heart.remove(), 6000);
+            }, 300);
+        }
+
+        function checkScroll() {
+            document.querySelectorAll('.glass-card').forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if(rect.top < window.innerHeight - 50) card.classList.add('show');
+            });
+        }
+        document.getElementById('page-2').onscroll = checkScroll;
+    </script>
+</body>
+</html>
